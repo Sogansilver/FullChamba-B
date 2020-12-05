@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".LoginActivity">
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:text="Full Chamba" />
+
+        <EditText
+            android:id="@+id/edtuser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:layout_below="@id/titulo"
+            android:layout_centerHorizontal="true"
+            android:inputType="textPersonName"
+            android:hint="Ingrese Correo" />
+
+        <EditText
+            android:id="@+id/edtpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/edtuser"
+            android:inputType="textPassword"
+            android:hint="Ingrese contraseña"/>
+
+        <Button
+            android:id="@+id/btnlogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edtpassword"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:text="Login"
+            tools:ignore="MissingConstraints"/>
+
+</RelativeLayout>

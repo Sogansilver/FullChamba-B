@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_perfil">
+
+    <fragment
+        android:id="@+id/nav_perfil"
+        android:name="com.moviles.fullchamba_b.ui.perfil.PerfilFragment"
+        android:label="@string/menu_perfil"
+        tools:layout="@layout/fragment_perfil" />
+
+    <fragment
+        android:id="@+id/nav_manage_user"
+        android:name="com.moviles.fullchamba_b.ui.manage_user.Manage_UserFragment"
+        android:label="@string/menu_manage_user"
+        tools:layout="@layout/fragment_manage_user" >
+        <action
+            android:id="@+id/action_nav_manage_user_to_editarDialogUsuario"
+            app:destination="@id/editarDialogUsuario" />
+        <action
+            android:id="@+id/action_nav_manage_user_to_agregarDialogUsuario"
+            app:destination="@id/agregarDialogUsuario" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_manage_activities"
+        android:name="com.moviles.fullchamba_b.ui.manage_activities.Manage_ActivitiesFragment"
+        android:label="@string/menu_manage_activities"
+        tools:layout="@layout/fragment_manage_activities" >
+        <action
+            android:id="@+id/action_nav_manage_activities_to_editarDialogActividades"
+            app:destination="@id/editarDialogActividades" />
+        <action
+            android:id="@+id/action_nav_manage_activities_to_agregarDialogActividades"
+            app:destination="@id/agregarDialogActividades" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_dashboard"
+        android:name="com.moviles.fullchamba_b.ui.dashboard.DashboardFragment"
+        android:label="@string/menu_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+    <activity
+        android:id="@+id/nav_logout"
+        android:name="com.moviles.fullchamba_b.LoginActivity"
+        android:label="@string/menu_logout"
+        tools:layout="@layout/activity_login" />
+    <dialog
+        android:id="@+id/agregarDialogActividades"
+        android:name="com.moviles.fullchamba_b.dialogs.AgregarDialogActividades"
+        android:label="AgregarDialog" />
+    <dialog
+        android:id="@+id/editarDialogActividades"
+        android:name="com.moviles.fullchamba_b.dialogs.EditarDialogActividades"
+        android:label="EditarDialogActividades" />
+    <dialog
+        android:id="@+id/editarDialogUsuario"
+        android:name="com.moviles.fullchamba_b.dialogs.EditarDialogUsuario"
+        android:label="EditarDialogUsuario" />
+    <dialog
+        android:id="@+id/agregarDialogUsuario"
+        android:name="com.moviles.fullchamba_b.dialogs.AgregarDialogUsuario"
+        android:label="AgregarDialogUsuario" />
+</navigation>

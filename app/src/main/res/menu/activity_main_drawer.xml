@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_perfil"
+            android:icon="@drawable/ic_account_box"
+            android:title="@string/menu_perfil" />
+        <item
+            android:id="@+id/nav_manage_user"
+            android:icon="@drawable/icsupervised_user"
+            android:title="@string/menu_manage_user" />
+        <item
+            android:id="@+id/nav_manage_activities"
+            android:icon="@drawable/ic_ballot"
+            android:title="@string/menu_manage_activities" />
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/ic_equalizer"
+            android:title="@string/menu_dashboard" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_exit"
+            android:title="@string/menu_logout" />
+    </group>
+</menu>

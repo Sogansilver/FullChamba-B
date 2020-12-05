@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+
+    <EditText
+        android:id="@+id/dlg_add_actividad_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Actividad" />
+
+    <EditText
+        android:id="@+id/dlg_add_actividad_responsable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_below="@id/dlg_add_actividad_nombre"
+        android:inputType="textPersonName"
+        android:hint="Responsable" />
+
+
+
+    <TextView
+        android:id="@+id/txt_priority_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dlg_add_actividad_responsable"
+
+        />
+
+
+
+    <SeekBar
+        android:id="@+id/seekBar_actividad_prioridad"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:max="5"
+        android:layout_below="@id/txt_priority_point"/>
+
+
+
+</RelativeLayout>
