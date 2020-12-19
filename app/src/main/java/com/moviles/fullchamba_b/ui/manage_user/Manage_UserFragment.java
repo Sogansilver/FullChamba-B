@@ -59,8 +59,8 @@ public class Manage_UserFragment extends Fragment implements SearchView.OnQueryT
         fb_add1=view.findViewById(R.id.fb_AddInUser);
         vsearch_user=view.findViewById(R.id.vsearch_user);
         usuariolist = new ArrayList<>();
-        Usuario usu1 = new Usuario("Juan","Martinez","Personal","124332@utp.edu.pe","123","");
-        Usuario usu2 = new Usuario("Martin","Vizcarra","Congresista","mvizcarra@gmail.com","123","");
+        Usuario usu1 = new Usuario("E001","Walter Perez","Administrador","wperez@gmail.com","123","");
+        Usuario usu2 = new Usuario("E002","Juan Diaz","Gestor de documentos","jdiaz@gmail.com","123","");
         usuariolist.add(usu1);
         usuariolist.add(usu2);
 

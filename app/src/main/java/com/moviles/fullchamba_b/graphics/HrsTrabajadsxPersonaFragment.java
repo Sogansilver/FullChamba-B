@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
@@ -91,6 +92,11 @@ public class HrsTrabajadsxPersonaFragment extends Fragment {
         BarData data1 = new BarData(vec1,dataSet);
         barChart.setData(data1);
         dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+
+
+        Bundle arguments = getArguments();
+        String nom1 = arguments.getString("nombre1");
+        Toast.makeText(getContext(),"El valor es: "+nom1,Toast.LENGTH_SHORT).show();
 
     }
 }

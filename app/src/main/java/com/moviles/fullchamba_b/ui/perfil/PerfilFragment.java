@@ -46,20 +46,20 @@ public class PerfilFragment extends Fragment {
         return root;
     }
 
-    TextView txt_nombre,txt_apellido,txt_cargo,txt_correo;
+    TextView txt_nombre,txt_cargo,txt_correo;
     ImageView imageperfil;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         txt_nombre = (TextView) view.findViewById(R.id.txt_nombre);
-        txt_apellido = (TextView) view.findViewById(R.id.txt_apellido);
+        //txt_apellido = (TextView) view.findViewById(R.id.txt_apellido);
         txt_cargo = (TextView) view.findViewById(R.id.txt_cargo);
         txt_correo = (TextView) view.findViewById(R.id.txt_correo);
         imageperfil = (ImageView) view.findViewById(R.id.imagePerfil);
 
-        Usuario usu2 = new Usuario("Martin","Vizcarra","Congresista","mvizcarra@gmail.com","123","");
+        Usuario usu2 = new Usuario("E001","Walter Perez","Administrador","wperez@gmail.com","123","");
         txt_nombre.setText(usu2.getNomusu());
-        txt_apellido.setText(usu2.getApeusu());
+        //txt_apellido.setText(usu2.getApeusu());
         txt_cargo.setText(usu2.getCargousu());
         txt_correo.setText(usu2.getCorreousu());
         imageperfil.setImageResource(R.drawable.ic_launcher_background);

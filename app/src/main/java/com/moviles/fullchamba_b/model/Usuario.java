@@ -3,16 +3,16 @@ package com.moviles.fullchamba_b.model;
 import java.io.Serializable;
 
 public class Usuario implements Serializable {
+    private String codusu;
     private String nomusu;
-    private String apeusu;
     private String cargousu;
     private String correousu;
     private String passusu;
     private String imageusu;
 
-    public Usuario(String nomusu, String apeusu, String cargousu, String correousu, String passusu, String imageusu) {
+    public Usuario(String codusu, String nomusu, String cargousu, String correousu, String passusu, String imageusu) {
+        this.codusu = codusu;
         this.nomusu = nomusu;
-        this.apeusu = apeusu;
         this.cargousu = cargousu;
         this.correousu = correousu;
         this.passusu = passusu;
@@ -23,20 +23,20 @@ public class Usuario implements Serializable {
 
     }
 
+    public String getCodusu() {
+        return codusu;
+    }
+
+    public void setCodusu(String codusu) {
+        this.codusu = codusu;
+    }
+
     public String getNomusu() {
         return nomusu;
     }
 
     public void setNomusu(String nomusu) {
         this.nomusu = nomusu;
-    }
-
-    public String getApeusu() {
-        return apeusu;
-    }
-
-    public void setApeusu(String apeusu) {
-        this.apeusu = apeusu;
     }
 
     public String getCargousu() {

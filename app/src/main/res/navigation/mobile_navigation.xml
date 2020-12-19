@@ -49,7 +49,11 @@
     <dialog
         android:id="@+id/agregarDialogActividades"
         android:name="com.moviles.fullchamba_b.dialogs.AgregarDialogActividades"
-        android:label="AgregarDialog" />
+        android:label="AgregarDialog" >
+        <action
+            android:id="@+id/action_agregarDialogActividades_to_nav_manage_activities"
+            app:destination="@id/nav_manage_activities" />
+    </dialog>
     <dialog
         android:id="@+id/editarDialogActividades"
         android:name="com.moviles.fullchamba_b.dialogs.EditarDialogActividades"

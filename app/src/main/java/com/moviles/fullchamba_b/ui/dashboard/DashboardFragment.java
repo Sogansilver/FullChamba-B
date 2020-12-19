@@ -15,9 +15,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.moviles.fullchamba_b.R;
 import com.moviles.fullchamba_b.graphics.HrXTarea;
@@ -27,7 +29,10 @@ import com.moviles.fullchamba_b.graphics.TareasFinalizadas;
 public class DashboardFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     private DashboardViewModel dashboardViewModel;
-
+//    private String val1 = "Pablo";
+//    private String val2 = "Juan";
+//    private String val3 = "Martin";
+    private int pass = 0;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -49,14 +54,14 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemSel
         public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
 
-            sp1= (Spinner)view.findViewById(R.id.spinner_dashboard);
             btnHrsPersona = (Button) view.findViewById(R.id.btn_hrsxpersona);
             btnHrsPersona.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Fragment childFragment = new HrsTrabajadsxPersonaFragment();
-                    FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                    transaction.replace(R.id.frame_fragment_child, childFragment).commit();
+                    ArrayAdapter<CharSequence> spinAdapter = ArrayAdapter.createFromResource(getContext(),R.array.combo_usuarios, android.R.layout.simple_spinner_item);
+                    sp1.setAdapter(spinAdapter);
+
+                    pass = 1;
                 }
             });
 
@@ -64,9 +69,10 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemSel
         btnTareasFinalizadas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment childFragment = new TareasFinalizadas();
-                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_fragment_child, childFragment).commit();
+                ArrayAdapter<CharSequence> spinAdapter = ArrayAdapter.createFromResource(getContext(),R.array.combo_usuarios, android.R.layout.simple_spinner_item);
+                sp1.setAdapter(spinAdapter);
+
+                pass = 2;
             }
         });
 
@@ -74,22 +80,62 @@ public class DashboardFragment extends Fragment implements AdapterView.OnItemSel
         btnHrsxTarea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment childFragment1 = new HrXTarea();
-                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_fragment_child, childFragment1).commit();
+                ArrayAdapter<CharSequence> spinAdapter = ArrayAdapter.createFromResource(getContext(),R.array.combo_usuarios, android.R.layout.simple_spinner_item);
+                sp1.setAdapter(spinAdapter);
+
+                pass = 3;
             }
         });
-    }
+
+
+            sp1= (Spinner)view.findViewById(R.id.spinner_dashboard);
+
+            /*ArrayAdapter<CharSequence> spinAdapter = ArrayAdapter.createFromResource(getContext(),R.array.combo_usuarios, android.R.layout.simple_spinner_item);
+            sp1.setAdapter(spinAdapter);
+            spinAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);*/
+            sp1.setOnItemSelectedListener(this);
+
+
+        }
+
+
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        Toast.makeText(adapterView.getContext(),"El item es: "+adapterView.getItemAtPosition(i).toString(),Toast.LENGTH_SHORT).show();
+        String val = adapterView.getItemAtPosition(i).toString();
+        switch (pass){
+            case 1:{
 
-            if(btnHrsPersona.isPressed()){
-                String cad=sp1.getSelectedItem().toString();
-                String codc=cad.substring(0,5);
-                //llenarNombre(codc);
+                Fragment childFragment = new HrsTrabajadsxPersonaFragment();
+                Bundle arguments = new Bundle();
+                arguments.putString( "val" , val);
+                childFragment.setArguments(arguments);
+                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_fragment_child, childFragment).commit();
+
             }
+            case 2:{
+                Fragment childFragment1 = new TareasFinalizadas();
+                Bundle arguments1 = new Bundle();
+                arguments1.putString( "val" , val);
+                childFragment1.setArguments(arguments1);
+                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_fragment_child, childFragment1).commit();
 
+
+            }
+            case 3:{
+                Fragment childFragment2 = new HrXTarea();
+                Bundle arguments2 = new Bundle();
+                arguments2.putString( "val" , val);
+                childFragment2.setArguments(arguments2);
+                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_fragment_child, childFragment2).commit();
+
+
+            }
+        }
 
 
     }

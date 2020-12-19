@@ -45,29 +45,13 @@
             android:layout_toRightOf="@id/tlNombre"
             android:text="TextView" />
 
-        <TextView
-            android:id="@+id/tlApellido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/tlNombre"
-            android:text="Apellido: " />
-
-        <TextView
-            android:id="@+id/txt_apellido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/tlNombre"
-            android:layout_toRightOf="@id/tlApellido"
-            android:text="TextView" />
 
         <TextView
             android:id="@+id/tlCargo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_below="@id/tlApellido"
+            android:layout_below="@id/tlNombre"
             android:text="Cargo: " />
 
         <TextView
@@ -75,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_below="@id/tlApellido"
+            android:layout_below="@id/tlNombre"
             android:layout_toRightOf="@id/tlCargo"
             android:text="TextView" />
 

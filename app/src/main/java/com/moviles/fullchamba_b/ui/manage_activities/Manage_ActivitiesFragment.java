@@ -1,6 +1,7 @@
 package com.moviles.fullchamba_b.ui.manage_activities;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,15 +27,20 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import com.moviles.fullchamba_b.R;
 import com.moviles.fullchamba_b.adapter.ActividadListAdapter;
+
+import com.moviles.fullchamba_b.dialogs.AgregarDialogActividades;
 import com.moviles.fullchamba_b.model.Actividad;
+import com.moviles.fullchamba_b.model.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Manage_ActivitiesFragment extends Fragment implements SearchView.OnQueryTextListener {
 
     private Manage_ActivitiesViewModel manageActivitiesViewModel;
     private List<Actividad> actividadlist;
+    private List<Usuario> usuariolist;
 
     private FloatingActionButton fb_add;
     //private Animation open_fb,close_fb,from_bottom_anim,to_botton_anim;
@@ -69,31 +75,35 @@ public class Manage_ActivitiesFragment extends Fragment implements SearchView.On
 
 
 
-
-
+        usuariolist = new ArrayList<>();
+        Usuario usu1 = new Usuario("E001","Walter Perez","Administrador","wperez@gmail.com","123","");
+        Usuario usu2 = new Usuario("E002","Juan Diaz","Gestor de documentos","jdiaz@gmail.com","123","");
+        usuariolist.add(usu1);
+        usuariolist.add(usu2);
        // manageActivitiesViewModel.AddActividades(new Actividad("Tarea1","Yo","En proceso",1));
 
 
         actividadlist = new ArrayList<>();
-        Actividad act2 = new Actividad("Tarea2","Tu","Finalizada",2);
+        Actividad act2 = new Actividad("Tarea2",usu1.getNomusu(),"Finalizada",2);
         actividadlist.add(act2);
-        Actividad act3 = new Actividad("Tarea3","El","En proceso",3);
+        Actividad act3 = new Actividad("Tarea3",usu2.getNomusu(),"En proceso",3);
         actividadlist.add(act3);
-        Actividad act4 = new Actividad("Tarea4","Ella","Finalizada",4);
+        Actividad act4 = new Actividad("Tarea4",usu1.getNomusu(),"Finalizada",4);
         actividadlist.add(act4);
-        Actividad act5 = new Actividad("Tarea5","Ellos","En proceso",5);
+        Actividad act5 = new Actividad("Tarea5",usu2.getNomusu(),"En proceso",5);
         actividadlist.add(act5);
-        Actividad act6 = new Actividad("Tarea6","Ellas","En proceso",2);
+        Actividad act6 = new Actividad("Tarea6",usu2.getNomusu(),"En proceso",2);
         actividadlist.add(act6);
-        Actividad act7 = new Actividad("Tarea7","Nosotros","En proceso",1);
+        Actividad act7 = new Actividad("Tarea7",usu1.getNomusu(),"En proceso",1);
         actividadlist.add(act7);
-        Actividad act8 = new Actividad("Tarea8","Nosotras","En proceso",2);
+        Actividad act8 = new Actividad("Tarea8",usu1.getNomusu(),"En proceso",2);
         actividadlist.add(act8);
-        Actividad act9 = new Actividad("Tarea9","Ustedes","Finalizada",3);
+        Actividad act9 = new Actividad("Tarea9",usu2.getNomusu(),"Finalizada",3);
         actividadlist.add(act9);
-        Actividad act10 = new Actividad("Tarea10","Vosotros","En proceso",4);
+        Actividad act10 = new Actividad("Tarea10",usu1.getNomusu(),"En proceso",4);
         actividadlist.add(act10);
-        //manageActivitiesViewModel.setListaActividad((MutableLiveData<List<Actividad>>) actividadlist);
+
+
 
         RecyclerView  recyclerView = view.findViewById(R.id.recycle_activities);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
@@ -116,13 +126,19 @@ public class Manage_ActivitiesFragment extends Fragment implements SearchView.On
 
         iniListenner();
 
+
         fb_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"Agregar Actividad",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Agregando Actividad",Toast.LENGTH_SHORT).show();
                 Navigation.findNavController(view).navigate(R.id.action_nav_manage_activities_to_agregarDialogActividades);
             }
         });
+
+
+
+
+
 
 
 
@@ -130,12 +146,10 @@ public class Manage_ActivitiesFragment extends Fragment implements SearchView.On
 
     private void iniListenner(){
         vsearch.setOnQueryTextListener(this);
-
     }
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-
         return false;
     }
 
@@ -149,4 +163,25 @@ public class Manage_ActivitiesFragment extends Fragment implements SearchView.On
 
 
 
+
+
+   /* @Callback
+    public void Crear_Actividad(String nombre_actividad, String responsable, int prioridad) {
+        Toast.makeText(getContext(),nombre_actividad,Toast.LENGTH_SHORT).show();
+    }
+*/
+
+    /*@Override
+    public void Crear_Actividad(String nombre_actividad, String responsable, int prioridad) {
+
+        //listaActividad1.setValue(actividadlist.add());
+        //Actividad act20 = new Actividad(nombre_actividad,responsable,"En proceso",prioridad);
+        //actividadlist.add(act20);
+        Toast.makeText(getContext(),nombre_actividad+", "+responsable+", "+prioridad,Toast.LENGTH_SHORT).show();
+    }*/
+
+    /*@Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }*/
 }

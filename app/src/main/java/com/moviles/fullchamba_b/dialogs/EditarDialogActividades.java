@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.moviles.fullchamba_b.R;
 
@@ -42,10 +43,6 @@ public class EditarDialogActividades extends DialogFragment {
         txt_priority_point_edit.setText("Prioridad: "+getArguments().getInt("prioridad")+"/"+seekBar_point_edit.getMax());
         seekBar_point_edit.setProgress(getArguments().getInt("prioridad"));
 
-
-
-
-
         txt_priority_point_edit.setText("Prioridad: "+seekBar_point_edit.getProgress()+"/"+seekBar_point_edit.getMax());
         seekBar_point_edit.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -73,6 +70,7 @@ public class EditarDialogActividades extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
+                        Toast.makeText(getActivity(),"Actividad: "+dlg_edit_actividad_nombre.getText().toString()+"; Responsable: "+dlg_edit_actividad_responsable.getText().toString()+"; Estado: En proceso ; Dificultad: "+seekBar_point_edit.getProgress(),Toast.LENGTH_SHORT).show();
                     }
                 })
                 .setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {

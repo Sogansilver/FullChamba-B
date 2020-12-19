@@ -19,4 +19,18 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
+
+    <string-array name="combo_usuarios">
+        <item>Seleccione:</item>
+        <item>Walter Perez</item>
+        <item>Juan Diaz</item>
+    </string-array>
+
+    <string-array name="cargos">
+        <item>Programador</item>
+        <item>Analista</item>
+        <item>Gestor de documentos</item>
+    </string-array>
+
 </resources>

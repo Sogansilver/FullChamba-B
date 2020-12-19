@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Build;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,7 +58,7 @@ public class UsuarioListAdapter extends RecyclerSwipeAdapter<UsuarioListAdapter.
 
         final Usuario usu = usuarioList.get(position);
 
-         holder.name_user.setText(this.usuarioList.get(position).getNomusu().toString()+" "+this.usuarioList.get(position).getApeusu().toString());
+         holder.name_user.setText(this.usuarioList.get(position).getNomusu().toString());
          holder.position_user.setText(this.usuarioList.get(position).getCargousu().toString());
          Glide.with(context)
                 .load(url+usu.getImageusu())
@@ -110,7 +111,12 @@ public class UsuarioListAdapter extends RecyclerSwipeAdapter<UsuarioListAdapter.
             @Override
             public void onClick(View view) {
                 Toast.makeText(context,"Usuario Editado",Toast.LENGTH_SHORT).show();
-                Navigation.findNavController(view).navigate(R.id.action_nav_manage_user_to_editarDialogUsuario);
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("nombre_usuario",usuarioList.get(position).getNomusu());
+                //bundle1.putString("apellido_usuario",usuarioList.get(position).getApeusu());
+                bundle1.putString("cargo_usuario",usuarioList.get(position).getCargousu());
+                bundle1.putString("correo_usuario",usuarioList.get(position).getCorreousu());
+                Navigation.findNavController(view).navigate(R.id.action_nav_manage_user_to_editarDialogUsuario,bundle1);
             }
         });
         holder.delete_user.setOnClickListener(new View.OnClickListener() {
